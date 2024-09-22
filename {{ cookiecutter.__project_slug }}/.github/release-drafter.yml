@@ -1,0 +1,54 @@
+name-template: '$RESOLVED_VERSION'
+tag-template: '$RESOLVED_VERSION'
+
+categories:
+  - title: '💥 Breaking changes'
+    labels:
+      - 'breaking'
+  - title: '🚀 Features'
+    labels:
+      - 'enhancement'
+      - 'feature'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+  - title: '🚚 Build system and CI'
+    labels:
+      - 'ci'
+      - 'dependencies'
+  - title: '🧰 Maintenance'
+    labels:
+      - 'chore'
+  - title: '🍟 Other updates'
+    labels:
+      - 'refactoring'
+      - 'documentation'
+      - 'performance'
+      - 'style'
+      - 'testing'
+exclude-labels:
+  - 'skip-changelog'
+
+change-template: '- $TITLE (#$NUMBER)'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
+
+template: |
+  ## Changes
+
+  $CHANGES
+
+  ---
+  **Full Changelog**: {{ cookiecutter.project_repo }}/compare/$PREVIOUS_TAG...$RESOLVED_VERSION
+  **Contributors**: $CONTRIBUTORS

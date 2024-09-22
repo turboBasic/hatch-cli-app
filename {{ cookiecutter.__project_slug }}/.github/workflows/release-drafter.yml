@@ -1,0 +1,19 @@
+# Drafts your next Release notes as Pull Requests are merged into "main"
+
+name: release-drafter
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-draft:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+
+      - uses: release-drafter/release-drafter@v6
+        env:
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}

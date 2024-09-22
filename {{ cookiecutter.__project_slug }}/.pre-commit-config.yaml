@@ -1,0 +1,40 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.6.0
+  hooks:
+  - id: check-added-large-files
+  - id: check-ast
+  - id: check-docstring-first
+  - id: check-json
+  - id: check-merge-conflict
+  - id: check-shebang-scripts-are-executable
+  - id: check-toml
+  - id: check-xml
+  - id: check-yaml
+    args: ['--unsafe']  # needed for !! tags in mkdocs.yml
+  - id: debug-statements
+  - id: end-of-file-fixer
+  - id: mixed-line-ending
+    args: ['--fix=auto']  # replace 'auto' with 'lf' to enforce Linux/Mac line endings or 'crlf' for Windows
+  - id: trailing-whitespace
+
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v{{ cookiecutter.__ruff_version }}  # make sure this is always consistent with hatch configs
+  hooks:
+    # Run the linter
+    - id: ruff
+    # Run the formatter
+    - id: ruff-format
+      args: [--check, --config, ./pyproject.toml]
+
+- repo: https://github.com/pre-commit/mirrors-mypy
+  rev: v{{ cookiecutter.__mypy_version }}    # make sure this is always consistent with hatch configs
+  hooks:
+    - id: mypy
+      args: ["--install-types", "--non-interactive"]
+      additional_dependencies: [types-tabulate, types-cachetools]
+
+- repo: https://github.com/kieran-ryan/pyprojectsort
+  rev: v0.3.0
+  hooks:
+    - id: pyprojectsort
