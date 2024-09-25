@@ -2,6 +2,7 @@
 [black]: https://pypi.org/project/black/
 [Codecov]: https://codecov.io/
 [conda]: https://conda.io/
+[Cookiecutter]: https://cookiecutter.readthedocs.io/en/stable/index.html
 [dynaconf]: https://www.dynaconf.com/
 [git]: https://git-scm.com/
 [hatch]: https://hatch.pypa.io/
@@ -15,8 +16,9 @@
 [pre-commit]: https://pre-commit.com/
 [pyenv]: https://github.com/pyenv/pyenv/
 [PyPI]: https://pypi.org/
-[Test PyPI]: https://test.pypi.org/
+[Read the Docs]: https://readthedocs.org/
 [repository]: {{ cookiecutter.project_repo }}
 [ruff]: https://docs.astral.sh/ruff/
+[Test PyPI]: https://test.pypi.org/
 [Typer]: https://typer.tiangolo.com/
 [virtualenv]: https://virtualenv.pypa.io/en/stable/
